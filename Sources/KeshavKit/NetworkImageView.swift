@@ -15,6 +15,15 @@ public struct NetworkImageView<I: View, P: View, O: View, E: View>: View {
     @ViewBuilder var offline: () -> O
     @ViewBuilder let error: (Error) -> E
     
+    public init(networkManager: NetworkManager, url: URL? = nil, content: @escaping (Image) -> I, placeholder: @escaping () -> P, offline: @escaping () -> O, error: @escaping (Error) -> E) {
+        self.networkManager = networkManager
+        self.url = url
+        self.content = content
+        self.placeholder = placeholder
+        self.offline = offline
+        self.error = error
+    }
+    
     public var body: some View {
         if networkManager.networkState == .connected {
             AsyncImage(url: url, content: view)

@@ -22,7 +22,7 @@ public class NetworkManager {
     let monitor = NWPathMonitor()
     let queue = DispatchQueue(label: "NetworkMonitor")
     
-    init(){
+    public init(){
         monitor.pathUpdateHandler = { path in
             #if targetEnvironment(simulator)
                 if (!self.hasStatus) {
