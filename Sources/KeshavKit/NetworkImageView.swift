@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NetworkImageView<I: View, P: View, O: View, E: View>: View {
+public struct NetworkImageView<I: View, P: View, O: View, E: View>: View {
     var networkManager: NetworkManager
     var url: URL?
     @ViewBuilder let content: (Image) -> I
@@ -15,7 +15,7 @@ struct NetworkImageView<I: View, P: View, O: View, E: View>: View {
     @ViewBuilder var offline: () -> O
     @ViewBuilder let error: (Error) -> E
     
-    var body: some View {
+    public var body: some View {
         if networkManager.networkState == .connected {
             AsyncImage(url: url, content: view)
         } else {

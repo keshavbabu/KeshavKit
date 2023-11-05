@@ -9,7 +9,7 @@ import Foundation
 import Network
 
 @Observable
-class NetworkManager {
+public class NetworkManager {
     
     enum NetworkState {
         case pending
